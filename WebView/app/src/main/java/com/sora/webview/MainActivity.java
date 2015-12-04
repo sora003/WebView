@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         webView = (WebView) findViewById(R.id.webView);
-        
+        webView.loadUrl("http://www.baidu.com");
     }
 
     @Override
