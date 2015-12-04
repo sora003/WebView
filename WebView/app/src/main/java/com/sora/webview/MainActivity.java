@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,11 +32,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         init();
+
     }
 
     private void init() {
         webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl("http://www.baidu.com");
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                //return super.shouldOverrideUrlLoading(view, url);
+                view.loadUrl(url);
+                return true;
+            }
+        });
     }
 
     @Override
