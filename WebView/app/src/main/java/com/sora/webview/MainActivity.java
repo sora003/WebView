@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl("http://www.baidu.com");
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //return super.shouldOverrideUrlLoading(view, url);
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
     }
 
     @Override
